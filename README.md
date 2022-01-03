@@ -8,7 +8,7 @@
 * The purpose of this analysis was to indentify trends of specific stocks for years of 2017 & 2018, these stocks were indentified by the client. The analysis was used to help assess and plan for their future investments.
 * The client needed a tool to be able to quickly and effectively assess stocks to indentify trends on their own.
 
-## Analysis
+## Analysis and Results
 ### Analysis of stocks for the year of 2017.
 * Overall for the year 2017, stocks were trending positively across the board.
 * Tickers "DQ" and "SEDG" had the largest gain in volume.
