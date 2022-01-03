@@ -28,7 +28,7 @@ Performing an analysis on stock data to uncover trends and to create a refactore
 * Refactored code by restructing existing code without changing the behavior of the code.
 * A specific example of refactored code in this VBA script was to a "tickerIndex" variable.
   - In creating this "tickerIndex" variable it allowed the macro to run faster because it was was accessing the correct index in four different arrays.
-  - **Orginal Loop Code:
+  - Orginal Loop Code:
      -     For i = 0 to 11
        ticker = tickers(i)
        totalVolume = 0
@@ -38,48 +38,39 @@ Performing an analysis on stock data to uncover trends and to create a refactore
            '5a) Get total volume for current ticker
            If Cells(j, 1).Value = ticker Then
                totalVolume = totalVolume + Cells(j, 8).Value
-
            End If
-           '5b) get starting price for current ticker
+           'get starting price for current ticker
            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
                startingPrice = Cells(j, 6).Value
            End If
-
-           '5c) get ending price for current ticker
+           'get ending price for current ticker
            If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
                endingPrice = Cells(j, 6).Value
-   - **Refactored Loop Code:
+   - Refactored Loop Code:
      -     ' Create a ticker Index
     tickerIndex = 0
-
     ' Create three output arrays for "volume", "starting price" and "ending price"
     Dim tickerVolumes(12) As Long
     Dim tickerStartingPrices(12) As Single
     Dim tickerEndingPrices(12) As Single
-    
     ' Create a for loop to initialize the tickerVolumes to zero.
      For i = 0 To 11
         tickerVolumes(i) = 0
     Next i
-    
     ' Loop over all the rows in the spreadsheet.
     For i = 2 To RowCount
-   
         ' Increase volume for current ticker
         tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
-        
         ' Check if the current row is the first row with the selected tickerIndex.
         If Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
                tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
         End If
-        
         ' check if the current row is the last row with the selected ticker
         '' If the next row’s ticker doesn’t match, increase the tickerIndex.
         If Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
                tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
                tickerIndex = tickerIndex + 1
         End If
-
             ' Increase the tickerIndex.
         If Cells(i, 1).Value = tickerIndex Then
                tickerIndex = tickerIndex + Cells(i, 6).Value
