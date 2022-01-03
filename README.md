@@ -1,5 +1,5 @@
 # stock-analysis
-Performing an analysis on stock data to uncover trends and to create a refactored macro tool through VBA for the client to use to continue to complete analysis on their own.
+* Performing an analysis on stock data to uncover trends and to create a refactored macro tool through VBA for the client to use to continue to complete analysis on their own.
 
 ## Overview of Project
 * Using stock data provided to complete an analysis on specific stocks and to create a refactored macro/tool for the client.
@@ -19,14 +19,23 @@ Performing an analysis on stock data to uncover trends and to create a refactore
 ### Analysis of stocks for the year of 2018.
 * 2018 overall had a different story with a majority of the stocks trending down.
 * However, tickers "RUN" and "ENPH" are still trending upwards making them very attractive.
-* As for execution time, both analysis for year of 2017 and 2018 took the same amount of time.
-* It's also important to note that the refactored code ran faster than the original code.
+
 
 ![goals](VBA_Challenge_2018.PNG)
 
-## Summary
+### VBA Macro Script Performance
+#### Original Code
+* Execution Time 2017: 0.4960938 seconds
+* Execution Time 2018: 0.484375 seconds
+* The script for the orginal code had different times for both the year 2017 and 2018 
+#### Refactored Code
+* Execution Time: 0.089844375 seconds
+* The script for the years of 2017 and 2018 took the same amount of time.
+* It's also important to note that the refactored code ran significantly faster than the original code.
+
+# Summary Comparison of Original and Refactored Code
 * Refactored code by restructing existing code without changing the behavior of the code.
-* A specific example of refactored code in this VBA script was to a "tickerIndex" variable.
+* A specific example of refactored code in this VBA script was to add a "tickerIndex" variable.
   - In creating this "tickerIndex" variable it allowed the macro to run faster because it was was accessing the correct index in four different arrays.
   - Orginal Loop Code:
      ```    For i = 0 to 11
@@ -79,11 +88,21 @@ Performing an analysis on stock data to uncover trends and to create a refactore
                    tickerIndex = tickerIndex + Cells(i, 6).Value
             End If
       ```
-### Advantages of Refactored
+## Advantages and Disadvantages
+### General Advantages of Refactored code
 * Refactoring removes "Code Smell".
 * Makes the code easier to maintain.
 * Reduces code size to perform faster.
 
-### Disadvantages of Refactored
+### General Disadvantages of Refactored code
 * May introduce new bugs that are difficult to troubleshoot.
 * Can potentially take more time refactor code.
+
+### Specific Advantages of refactored code for this analysis
+* The refactored code ran faster than the original code.
+* The code will be easier to maintain to analyze future stock volumes.
+* The refactored code allowed for the scripts to run at equal times.
+
+### Specific Disadvantages of refactored code for this analysis
+* It took more time to refactor the code.
+* The rfactored code is longer than the original code
